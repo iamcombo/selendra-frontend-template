@@ -5,7 +5,7 @@ import { mnemonicGenerate } from '@polkadot/util-crypto';
 import { Button, Grid, Input } from 'semantic-ui-react'
 
 export default function CreateAccount({ isMnemonic }) {
-  const [mnemonic, setMnemonic] = React.useState('');
+  const [mnemonic, setMnemonic] = React.useState('helmet senior adapt loan rubber already dust retreat melody exact fade celery');
   const [form, setForm] = React.useState({
     username: '',
     password: ''
@@ -21,7 +21,8 @@ export default function CreateAccount({ isMnemonic }) {
       const { pair, json } = keyring.addUri(
         mnemonic, 
         form.password, 
-        { name: form.username }
+        { name: form.username },
+        'sr25519'
       );
       console.log(pair, json);
       toast.success('Done!');
