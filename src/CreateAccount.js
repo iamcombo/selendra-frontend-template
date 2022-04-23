@@ -1,6 +1,7 @@
+import React from 'react'
+import toast from 'react-hot-toast';
 import keyring from '@polkadot/ui-keyring';
 import { mnemonicGenerate } from '@polkadot/util-crypto';
-import React from 'react'
 import { Button, Grid, Input } from 'semantic-ui-react'
 
 export default function CreateAccount() {
@@ -15,15 +16,19 @@ export default function CreateAccount() {
   }
 
   async function createAcc () {
-    // add the account, encrypt the stored JSON with an account-specific password
-    const { pair, json } = keyring.addUri(
-      mnemonic, 
-      form.password, 
-      { name: form.username }
-    );
-    console.log(pair, json);
+    try {
+      // add the account, encrypt the stored JSON with an account-specific password
+      const { pair, json } = keyring.addUri(
+        mnemonic, 
+        form.password, 
+        { name: form.username }
+      );
+      console.log(pair, json);
+      toast.success('Done!');
+    } catch (error) {
+      console.log(error);
+    }
   }
-  console.log(form.username, form.password);
 
   return (
     <Grid.Column>
