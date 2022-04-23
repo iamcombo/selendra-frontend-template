@@ -5,7 +5,7 @@ import { mnemonicGenerate } from '@polkadot/util-crypto';
 import { Button, Grid, Input } from 'semantic-ui-react'
 
 export default function CreateAccount({ isMnemonic }) {
-  const [mnemonic, setMnemonic] = React.useState('helmet senior adapt loan rubber already dust retreat melody exact fade celery');
+  const [mnemonic, setMnemonic] = React.useState('');
   const [form, setForm] = React.useState({
     username: '',
     password: ''
