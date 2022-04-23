@@ -80,6 +80,10 @@ function Main() {
             <RestoreAccount />
           </Grid.Row>
           <Grid.Row>
+            {/* <CreateAccount /> */}
+            <RestoreAccount />
+          </Grid.Row>
+          <Grid.Row>
             <Transfer />
             <Upgrade />
           </Grid.Row>

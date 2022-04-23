@@ -9,6 +9,7 @@ export default function Main(props) {
   const [balances, setBalances] = useState({})
 
   useEffect(() => {
+    keyring.setSS58Format(204);
     const addresses = keyring.getPairs().map(account => account.address)
     let unsubscribeAll = null
 
