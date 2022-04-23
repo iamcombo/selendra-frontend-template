@@ -80,8 +80,8 @@ function Main() {
             <RestoreAccount />
           </Grid.Row>
           <Grid.Row>
-            {/* <CreateAccount /> */}
-            <RestoreAccount />
+            <CreateAccount isMnemonic />
+            {/* <RestoreAccount  /> */}
           </Grid.Row>
           <Grid.Row>
             <Transfer />
