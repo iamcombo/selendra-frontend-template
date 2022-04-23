@@ -25,6 +25,15 @@ export default function CreateAccount({ isMnemonic }) {
         'sr25519'
       );
       console.log(pair, json);
+
+      const strJSON = JSON.stringify(json);
+      const blob = new Blob([strJSON],{type:'application/json'});
+      const href = await URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = href;
+      link.download = "account.json";
+      link.click();
+
       toast.success('Done!');
     } catch (error) {
       console.log(error);
@@ -70,6 +79,9 @@ export default function CreateAccount({ isMnemonic }) {
         />
       </div>
       { isMnemonic ?
+        <Button onClick={createAcc}>Create Account</Button>
+        :
+        mnemonic ?
         <Button onClick={createAcc}>Create Account</Button>
         :
         <Button onClick={genMnemonic}>Generate Mnemonic Seed</Button>
